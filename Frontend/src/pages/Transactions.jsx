@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { showError, showSuccess } from '../components/ToastMessageBox.jsx'
 
 const Transactions = () => {
     const [recentTransactions, setRecentTransactions] = useState([])
@@ -10,7 +9,7 @@ const Transactions = () => {
             const result = await axios.get('http://localhost:8000/api/user/transaction/get-all', { withCredentials: true })
             setRecentTransactions(result.data.results)
         } catch (error) {
-            showError(error.message)
+            console.log(error.response?.data?.message)
         }
     }
 
@@ -20,7 +19,7 @@ const Transactions = () => {
 
     return (
         <>
-            <div className="w-full h-full flex justify-center items-center">    
+            <div className="w-full h-full flex justify-center items-center">
                 <div className="md:w-[80%] h-[80%] md:p-2 max-md:overflow-x-scroll">
                     <table className="w-full border-separate border-spacing-y-2">
 

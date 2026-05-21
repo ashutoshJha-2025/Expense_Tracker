@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { showError, showSuccess } from './ToastMessageBox'
 
 const RecentTransactions = () => {
     const [recentTransactions, setRecentTransactions] = useState([])
@@ -10,7 +9,7 @@ const RecentTransactions = () => {
             const result = await axios.get('http://localhost:8000/api/user/transaction/get-all', { withCredentials: true })
             setRecentTransactions(result.data.results)
         } catch (error) {
-            showError(error.message)
+            console.log(error.response?.data?.message || error.response?.data?.errors?.[0]?.msg || 'Unauthorized user, login/register to continue !')
         }
     }
 
@@ -32,7 +31,7 @@ const RecentTransactions = () => {
     }
 
     return (
-        <div className='w-full bg-[#1B1B1B] rounded-2xl border border-slate-800 flex flex-col items-start md:ml-2'>
+        <div className='w-full bg-[#1b1b1b] rounded-2xl border border-slate-800 flex flex-col items-start '>
             <div className='p-4'>
                 <h1 className='text-lg font-semibold text-slate-200'>Recent Transactions</h1>
             </div>

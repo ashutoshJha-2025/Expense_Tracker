@@ -43,7 +43,7 @@ async function getAllTransactions(req, res) {
 
     if (!refreshToken) {
         return res.status(401).json({
-            messgae: 'Refresh token not found, Unauthorized user !'
+            message: 'Refresh token not found, Unauthorized user !'
         })
     }
     const { id } = jwt.verify(refreshToken, process.env.JWT_SECRET)
@@ -107,7 +107,7 @@ async function getTransactionStats(req, res) {
 
     if (!refreshToken) {
         return res.status(401).json({
-            messgae: 'Refresh token not found, Unauthorized user !'
+            message: 'Refresh token not found, Unauthorized user !'
         })
     }
     const { id } = jwt.verify(refreshToken, process.env.JWT_SECRET)

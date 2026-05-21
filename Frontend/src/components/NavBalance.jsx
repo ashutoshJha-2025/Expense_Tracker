@@ -19,7 +19,7 @@ const NavBalance = () => {
 
     return (
         <>
-            <div className="w-full h-full p-2 flex justify-center items-center gap-4">
+            <div className="w-full h-full bg-[#1b1b1b] rounded-2xl border-slate-800 border p-4 gap-4 flex justify-center items-center md:gap-4 max-sm:gap-2">
 
                 <div className="w-[100%/3] h-full bg-[#E5FAFF] rounded-xl flex flex-col justify-center gap-2 items-start px-2">
                     <h1 className="text-slate-800 font-semibold text-md ">Current Balance</h1>
