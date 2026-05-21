@@ -52,7 +52,7 @@ const Accounts = () => {
                 <div className=" flex flex-col w-[70%] h-[70%] items-center gap-5">
                     <div className="w-full h-[90%] flex flex-col flex-wrap border-2 border-[#1b1b1b] p-5 rounded-lg">
                         {account.map((acc, index) => (
-                            <div key={index} className="border border-[#A8A68D] px-2 py-1 text-[#fffbc1] bg-[#4C4A3E] w-50 rounded-lg flex items-center mb-2">
+                            <div key={index} className="border border-[#A8A68D] px-2 py-1 text-[#fffbc1] bg-[#4C4A3E] sm:w-50 max-sm:w-43 rounded-lg flex items-center mb-2">
                                 <div className="h-full w-[90%]">
                                     <h1 className="text-lg font-semibold">{acc.name}</h1>
                                     <h1 className="text-md font-medium ">Balance: <span className="text-green-400 font-normal">  {acc.accountBalance || 0}  {localStorage.getItem('currency') || 'INR'}</span></h1>
@@ -65,11 +65,11 @@ const Accounts = () => {
 
                     <div
                         onClick={() => setIsOpen('open')}
-                        className="text-[#A8A68D] flex justify-center items-center gap-4 font-semibold text-lg border-2 border-[#A8A68D] px-4 py-2 rounded-md cursor-pointer">
+                        className="text-[#A8A68D] flex justify-center items-center gap-4  border-2 border-[#A8A68D] px-4 py-2 rounded-md cursor-pointer">
                         <div className="border-2 border-[#A8A68D] h-6 w-6 flex justify-center items-center rounded-full text-center">
                             +
                         </div>
-                        <h1>ADD NEW ACCOUNT</h1>
+                        <h1 className="font-semibold sm:text-lg max-sm:text-sm">ADD NEW ACCOUNT</h1>
                     </div>
                 </div>
 

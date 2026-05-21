@@ -5,7 +5,7 @@ const Navbar = () => {
     const name = localStorage.getItem('username')
     return (
         <>
-            <div className='md:w-47.5 md:h-full max-md:w-full max-md:h-[15%] text-white max-md:bottom-0 max-md:absolute'>
+            <div className='md:w-47.5 md:h-full max-md:w-full max-md:h-[10%] text-white max-md:bottom-0 max-md:absolute max-md:border-t max-md:border-t-slate-600'>
 
                 <aside className="h-full w-full bg-[#1b1b1b] flex flex-col justify-around items-center ">
                     <div className="flex flex-col p-8 justify-center items-center max-md:hidden">
@@ -21,7 +21,7 @@ const Navbar = () => {
                         </h1>
                     </div>
 
-                    <nav className="flex flex-col items-start  gap-3 md:mb-30 max-md:flex-row max-md:gap-1 max-md:h-full max-md:mt-3 ">
+                    <nav className="flex flex-col items-start  md:gap-3 md:mb-30 max-md:flex-row max-md:gap-1 max-md:h-full max-md:mt-3 ">
                         <NavButtons title="Dashboard" route="/dashboard" />
                         <NavButtons title="Transactions" route="/transactions" />
                         <NavButtons title="Category" route="/category" />

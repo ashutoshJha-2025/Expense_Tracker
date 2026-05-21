@@ -55,9 +55,9 @@ const Category = () => {
                     <div className="flex w-full md:h-[80%] gap-10">
 
                         <div className="w-[50%] h-full">
-                            <h1 className="text-[#03BEA8] text-xl font-bold px-4 py-2">Income Categories</h1>
+                            <h1 className="text-[#03BEA8] sm:text-xl font-bold px-4 py-2">Income Categories</h1>
                             <div className="w-full  border border-slate-800 "></div>
-                            <ul className="md:text-lg max-md:text-md font-medium text-white px-4 py-2 md:ml-5">
+                            <ul className="md:text-lg max-md:text-md max-sm:text-sm font-medium text-white px-4 py-2 md:ml-5">
                                 {category.filter(cat => cat.type === 'Income').map((cat, index) => (
                                     <div key={index} className="w-[80%] flex justify-between items-center mb-2">
                                         <li>{cat.name}</li>
@@ -69,13 +69,13 @@ const Category = () => {
 
 
                         <div className="w-[50%] h-full">
-                            <h1 className="text-[#03BEA8] text-xl font-bold px-4 py-2">Expense Categories</h1>
+                            <h1 className="text-[#03BEA8] sm:text-xl font-bold px-4 py-2">Expense Categories</h1>
                             <div className="w-full  border border-slate-800 "></div>
-                            <ul className="md:text-lg max-md:text-md font-medium text-white px-4 py-2 md:ml-5">
+                            <ul className="md:text-lg max-md:text-md max-sm:text-sm font-medium text-white px-4 py-2 md:ml-5">
                                 {category.filter(cat => cat.type === 'Expense').map((cat, index) => (
                                     <div key={index} className="w-[80%] flex justify-between items-center mb-2">
-                                        <li>{cat.name}</li>
-                                        <span onClick={() => delCategory(cat.name)} className="w-5 h-5 border border-red-500 flex justify-center items-center rounded-sm cursor-pointer">-</span>
+                                        <li >{cat.name}</li>
+                                        <span onClick={() => delCategory(cat.name)} className="w-5 h-5  border border-red-500 flex justify-center items-center rounded-sm cursor-pointer">-</span>
                                     </div>
                                 ))}
                             </ul>
@@ -86,18 +86,18 @@ const Category = () => {
 
                     <div
                         onClick={() => setIsOpen('open')}
-                        className="text-[#A8A68D] flex justify-center items-center gap-4 font-semibold text-lg border-2 border-[#A8A68D] px-4 py-2 rounded-md cursor-pointer">
+                        className="text-[#A8A68D] flex justify-center items-center gap-4 border-2 border-[#A8A68D] px-4 py-2 rounded-md cursor-pointer">
                         <div className="border-2 border-[#A8A68D] h-6 w-6 flex justify-center items-center rounded-full text-center">
                             +
                         </div>
-                        <h1>ADD NEW CATEGORY</h1>
+                        <h1 className="font-semibold sm:text-lg max-sm:text-sm">ADD NEW CATEGORY</h1>
                     </div>
                 </div>
 
             </div>
 
             <div className={`fixed inset-0 flex justify-center items-center backdrop-blur-xs  z-100 ${isOpen === 'close' ? 'hidden' : ''}`}>
-                <div className="w-80  h-50 bg-[#585752] rounded-xl flex flex-col items-center justify-start ">
+                <div className="w-80 max-sm:w-75 h-50 bg-[#585752] rounded-xl flex flex-col items-center justify-start ">
                     <h1 className="text-[#FFFAC5] text-lg font-medium px-4 py-2">Add new category</h1>
 
                     <div className="w-full flex justify-around items-center text-lg font-medium mb-2">
