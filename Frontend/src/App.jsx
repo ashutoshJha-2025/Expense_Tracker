@@ -14,9 +14,9 @@ const App = () => {
   return (
     <>
       <ToastMessageBox />
-      <div className="h-screen flex">
+      <div className="h-screen md:flex ">
         <Navbar />
-        <div className="flex-1">
+        <div className="flex-1 max-md:h-[85%]">
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path='/add-expense' element={<AddExpense />} />

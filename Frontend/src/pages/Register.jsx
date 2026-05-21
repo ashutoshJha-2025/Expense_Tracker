@@ -20,8 +20,8 @@ const Register = () => {
 
     return (
         <>
-            <div className="w-full h-full flex items-center justify-center px-4">
-                <div className="w-100 bg-white rounded-3xl shadow-2xl px-8 py-4">
+            <div className="w-full h-full flex items-center justify-center sm:px-4">
+                <div className="w-100 max-sm:w-75 bg-white rounded-3xl shadow-2xl sm:px-8 max-sm:px-4 py-4">
                     <h1 className="text-center text-3xl font-semibold text-slate-700">Register</h1>
 
                     <form onSubmit={(e) => e.preventDefault()} className="mt-6 space-y-4">

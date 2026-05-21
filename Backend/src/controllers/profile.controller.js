@@ -8,7 +8,7 @@ async function getMe(req, res) {
 
     if (!refreshToken) {
         return res.status(401).json({
-            messgae: 'Refresh token not found, Unauthorized user !'
+            message: 'Unauthorized user, login/register to continue !'
         })
     }
     const { id } = jwt.verify(refreshToken, process.env.JWT_SECRET)
@@ -81,7 +81,7 @@ async function setCurrency(req, res) {
 
     if (!refreshToken) {
         return res.status(401).json({
-            messgae: 'Refresh token not found, Unauthorized user !'
+            message: 'Refresh token not found, Unauthorized user !'
         })
     }
     const { id } = jwt.verify(refreshToken, process.env.JWT_SECRET)

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { showSuccess, showError } from "../components/ToastMessageBox";
+import { showSuccess, showWarning,showError } from "../components/ToastMessageBox";
 
 const Profile = () => {
     const [currency, setCurrency] = useState(() => {
@@ -16,7 +16,7 @@ const Profile = () => {
             localStorage.removeItem('username')
             localStorage.removeItem('currency')
         } catch (error) {
-            showError(error.response?.data?.message || error.response?.data?.errors[0]?.msg || 'Invalid credentials')
+            showError(error.response?.data?.message || error.response?.data?.errors[0]?.msg || 'Unauthorized user, login / register to continue !')
         }
     }
 
@@ -27,7 +27,7 @@ const Profile = () => {
             localStorage.setItem('username', response?.data?.user?.name || null)
             localStorage.setItem('currency', response?.data?.user?.currency || null)
         } catch (error) {
-            showError(error.response?.data?.message || error.response?.data?.errors[0]?.msg || 'Invalid credentials')
+            showWarning(error.response?.data?.message || error.response?.data?.errors?.[0]?.msg || 'Unauthorized user, login/register to continue !')
         }
     }
 
@@ -36,7 +36,6 @@ const Profile = () => {
             const response = await axios.post('http://localhost:8000/api/user/profile/set-currency', { currency }, { withCredentials: true })
             localStorage.setItem('currency', currency)
         } catch (error) {
-            showError(error.response?.data?.message || error.response?.data?.errors[0]?.msg || 'Invalid credentials')
         }
     }
 
@@ -50,7 +49,7 @@ const Profile = () => {
     return (
         <>
             <div className="w-full h-full flex justify-center items-center">
-                <div className="w-95 mx-md:w-70 h-full py-10 gap-4 flex flex-col max-md:px-5" >
+                <div className="w-95 max-md:w-90 max-sm:w-80 h-full py-10 gap-4 flex flex-col max-md:px-5" >
 
                     <div className="bg-[#141417]  rounded-[22px] p-6 flex flex-col items-center gap-3 border border-[#1e1e24] glow fade-in">
                         <div className="avatar-ring p-0.75 rounded-full bg-linear-to-r from-[#db2777] via-[#ef4444] to-[#f97316]">
@@ -86,7 +85,7 @@ const Profile = () => {
                         <div
                             className="w-[40%] bg-[#141417] rounded-2xl p-4 flex flex-col gap-1 border border-[#1e1e24]"
                         >
-                            <span className="text-sm font-medium text-[#52525b] ">
+                            <span className="text-sm max-sm:text-xs font-medium text-[#52525b] ">
                                 TOTAL EXPENSES
                             </span>
                             <span className="text-lg font-semibold text-[#f4f4f5]">
@@ -98,7 +97,7 @@ const Profile = () => {
                         <div
                             className="w-[40%] bg-[#141417] rounded-2xl p-4 flex flex-col gap-1 border border-[#1e1e24]"
                         >
-                            <span className="text-[9px] font-medium text-[#52525b] uppercase tracking-wider leading-tight">
+                            <span className="text-sm max-sm:text-xs font-medium text-[#52525b] ">
                                 TRANSACTIONS
                             </span>
                             <span className="text-lg font-semibold text-[#f4f4f5] ">
