@@ -6,7 +6,7 @@ import backspaceImg from "../assets/backspace.svg"
 
 const AddExpense = () => {
     const [activeType, setActiveType] = useState("EXPENSE");
-    const [display, setDisplay] = useState("0");
+    const [display, setDisplay] = useState("");
     const [expression, setExpression] = useState("");
     const [accounts, setAccounts] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -59,7 +59,7 @@ const AddExpense = () => {
         if (value === "=") {
             try {
                 setExpression((prev) => {
-                    const result = eval(prev.replace(/x/g, "*")).toString();
+                    const result = eval(prev).toString();
                     setDisplay(result);
                     return result;
                 });
@@ -75,7 +75,7 @@ const AddExpense = () => {
             });
         } else {
             setExpression((prev) => {
-                const newExpr = prev + value;
+                const newExpr = prev.concat(value);
                 setDisplay(newExpr);
                 return newExpr;
             });
@@ -228,8 +228,8 @@ const AddExpense = () => {
                     <div className="w-full h-15 bg-[#424242] border border-[#A8A68D] rounded-lg flex gap-1">
                         <input
                             name="total"
-                            type="number"
-                            placeholder={0}
+                            type="text"
+                            placeholder='0'
                             disabled={true}
                             value={display}
                             className="w-[90%] h-full text-white  placeholder:text-white text-4xl font-bold text-right ">
