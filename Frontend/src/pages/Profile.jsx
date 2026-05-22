@@ -11,7 +11,7 @@ const Profile = () => {
 
     async function logout() {
         try {
-            const response = await axios.get('http://localhost:8000/api/user/authentication/logout-all', { withCredentials: true })
+            const response = await axios.get('https://expense-tracker-backend-jigy.onrender.com/api/user/authentication/logout-all', { withCredentials: true })
             showSuccess('Logged out successfully')
             localStorage.removeItem('username')
             localStorage.removeItem('currency')
@@ -22,7 +22,7 @@ const Profile = () => {
 
     async function getMe() {
         try {
-            const response = await axios.get('http://localhost:8000/api/user/profile/get-me', { withCredentials: true })
+            const response = await axios.get('https://expense-tracker-backend-jigy.onrender.com/api/user/profile/get-me', { withCredentials: true })
             setUser(response.data)
             localStorage.setItem('username', response?.data?.user?.name || null)
             localStorage.setItem('currency', response?.data?.user?.currency || null)
@@ -33,7 +33,7 @@ const Profile = () => {
 
     async function setCurrBackend() {
         try {
-            const response = await axios.post('http://localhost:8000/api/user/profile/set-currency', { currency }, { withCredentials: true })
+            const response = await axios.post('https://expense-tracker-backend-jigy.onrender.com/api/user/profile/set-currency', { currency }, { withCredentials: true })
             localStorage.setItem('currency', currency)
         } catch (error) {
         }

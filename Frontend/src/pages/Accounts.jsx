@@ -10,7 +10,7 @@ const Accounts = () => {
 
     const addAccount = async () => {
         try {
-            const result = await axios.post('http://localhost:8000/api/user/account/add', formData, { withCredentials: true })
+            const result = await axios.post('https://expense-tracker-backend-jigy.onrender.com/api/user/account/add', formData, { withCredentials: true })
             showSuccess(result.data.message)
             setIsOpen('close')
             setFormData({ accountBalance: 0, name: '' })
@@ -21,7 +21,7 @@ const Accounts = () => {
 
     const getAllAccount = async () => {
         try {
-            const result = await axios.get('http://localhost:8000/api/user/account/get-all', { withCredentials: true })
+            const result = await axios.get('https://expense-tracker-backend-jigy.onrender.com/api/user/account/get-all', { withCredentials: true })
             setAccount(result.data.results)
         } catch (error) {
             console.log('Error in getting categories:-\n', error.message)
@@ -30,7 +30,7 @@ const Accounts = () => {
     const delAccount = async (name) => {
         try {
             const result = await axios.delete(
-                'http://localhost:8000/api/user/account/delete',
+                'https://expense-tracker-backend-jigy.onrender.com/api/user/account/delete',
                 {
                     data: { name },
                     withCredentials: true

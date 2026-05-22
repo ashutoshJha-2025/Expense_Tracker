@@ -6,7 +6,7 @@ const RecentTransactions = () => {
 
     const getAllTransactions = async () => {
         try {
-            const result = await axios.get('http://localhost:8000/api/user/transaction/get-all', { withCredentials: true })
+            const result = await axios.get('https://expense-tracker-backend-jigy.onrender.com/api/user/transaction/get-all', { withCredentials: true })
             setRecentTransactions(result.data.results)
         } catch (error) {
             console.log(error.response?.data?.message || error.response?.data?.errors?.[0]?.msg || 'Unauthorized user, login/register to continue !')

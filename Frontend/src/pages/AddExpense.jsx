@@ -46,7 +46,7 @@ const AddExpense = () => {
 
     const sendNewTransaction = async () => {
         try {
-            const result = await axios.post('http://localhost:8000/api/user/transaction/add', formData, { withCredentials: true });
+            const result = await axios.post('https://expense-tracker-backend-jigy.onrender.com/api/user/transaction/add', formData, { withCredentials: true });
             showSuccess(result.data.message);
         } catch (error) {
 
@@ -84,7 +84,7 @@ const AddExpense = () => {
 
     const getAllAccounts = async () => {
         try {
-            const result = await axios.get('http://localhost:8000/api/user/account/get-all', { withCredentials: true });
+            const result = await axios.get('https://expense-tracker-backend-jigy.onrender.com/api/user/account/get-all', { withCredentials: true });
             setAccounts(result.data.results);
             if (result.data.results.length > 0) {
                 setSelectedAccount(result.data.results[0].name);
@@ -96,7 +96,7 @@ const AddExpense = () => {
 
     const getAllCategories = async () => {
         try {
-            const result = await axios.get('http://localhost:8000/api/user/category/get-all', { withCredentials: true });
+            const result = await axios.get('https://expense-tracker-backend-jigy.onrender.com/api/user/category/get-all', { withCredentials: true });
             const categoryType = activeType === 'INCOME' ? 'Income' : 'Expense';
             const filtered = result.data.results.filter(cat => cat.type === categoryType);
             setCategories(filtered);

@@ -10,7 +10,7 @@ const Category = () => {
 
     const addCategory = async () => {
         try {
-            const result = await axios.post('http://localhost:8000/api/user/category/add', formData, { withCredentials: true })
+            const result = await axios.post('https://expense-tracker-backend-jigy.onrender.com/api/user/category/add', formData, { withCredentials: true })
             showSuccess(result.data.message)
             setIsOpen('close')
             setFormData({ ...formData, name: '' })
@@ -20,7 +20,7 @@ const Category = () => {
     }
     const getAllCategory = async () => {
         try {
-            const result = await axios.get('http://localhost:8000/api/user/category/get-all', { withCredentials: true })
+            const result = await axios.get('https://expense-tracker-backend-jigy.onrender.com/api/user/category/get-all', { withCredentials: true })
             setCategory(result.data.results)
         } catch (error) {
             console.log('Error in getting categories:-\n', error.message)
@@ -29,7 +29,7 @@ const Category = () => {
     const delCategory = async (name) => {
         try {
             const result = await axios.delete(
-                'http://localhost:8000/api/user/category/delete',
+                'https://expense-tracker-backend-jigy.onrender.com/api/user/category/delete',
                 {
                     data: { name },
                     withCredentials: true

@@ -6,7 +6,7 @@ const NavBalance = () => {
 
     const getStats = async () => {
         try {
-            const result = await axios.get('http://localhost:8000/api/user/transaction/stats', { withCredentials: true })
+            const result = await axios.get('https://expense-tracker-backend-jigy.onrender.com/api/user/transaction/stats', { withCredentials: true })
             setResponse(result.data)
         } catch (error) {
             console.log('Error in getting balance:-\n', error.message)

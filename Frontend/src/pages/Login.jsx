@@ -10,7 +10,7 @@ const Login = () => {
 
     const sendData = async () => {
         try {
-            const result = await axios.post('http://localhost:8000/api/user/authentication/login', formData, { withCredentials: true })
+            const result = await axios.post('https://expense-tracker-backend-jigy.onrender.com/api/user/authentication/login', formData, { withCredentials: true })
             showSuccess(result.data.message)
             setTimeout(() => navigate('/'), 1000)
         } catch (error) {
