@@ -108,7 +108,12 @@ async function logoutAll(req, res) {
             $set: { revoked: true }
         }
     )
-    res.clearCookie('refreshToken')
+    res.clearCookie('refreshToken', {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+    })
     return res.status(200).json({
         message: 'Logout from all devices successfully'
     })
